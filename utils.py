@@ -122,8 +122,6 @@ def threshold_adaptive_filter(img, umbral):
         bright_bits = sum(hist[umbral:])
         comparacion_cantidad_bits = (bright_bits/total_bits)*100
     
-    #print("final", comparacion_cantidad_bits)
-    #print(umbral)
     img_p1, th1 = cv.threshold(img,umbral,255,cv.THRESH_BINARY)
     return th1, umbral
 
@@ -188,9 +186,7 @@ def proyect_feature_processing(img, var_error, umbral):
         img, umbral = threshold_adaptive_filter(img, umbral)
     else:
         img = threshold_filter(img, umbral)
-        #img = threshold_filter(img, umbral=200)
     
-    #print(umbral)
     img = blurring_filter(img)
     img = canny(img)
 
